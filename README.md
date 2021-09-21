@@ -8,3 +8,6 @@ Tropical Fish 1
 
 Tropical Fish 2
 - https://www.maxpixel.net/Aquarium-Sea-Fish-Exotic-Fish-Tropical-Fish-1332185 
+
+Plant
+- https://pixabay.com/de/illustrations/pflanze-ornament-aquarium-fischglas-5190623/
