@@ -44,9 +44,15 @@
                 fish1.x = 840;
                 fish1.y = 50;
                 fish1.scale.set(.3);
+
+            //Sprite 3 (Fish2)
+            let fish2 = PIXI.Sprite.from("img/fish2.png");
+                fish2.x = 630;
+                fish2.y = 370;
+                fish2.scale.set(.3);
                 
 
-            app.stage.addChild(fish1);
+            app.stage.addChild(fish2);
 
             //Container
             var container1 = new PIXI.Container();
@@ -63,10 +69,12 @@
             let time = Date.now();
             let wobble = Math.sin(time/1000)*50;
             let wobble2 = Math.sin(time/800)*50;
+            let wobble3 = Math.sin(time/500)*60;
 
             
             octopus.y = 240 + wobble;
             fish1.y = 100 + wobble2;
+            fish2.y = 370 + wobble3;
 
             setTimeout(animationLoop, 1000/30);
         }
