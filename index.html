@@ -20,6 +20,14 @@
 
         document.body.appendChild(app.view);
 
+       //Sharky Sprite 
+       let shark = PIXI.Sprite.from("img/Sharky.png")
+            shark.y = 80;
+            shark.x = 1280;
+            shark.scale.set(.6);
+
+            app.stage.addChild(shark);
+       
         //Sand Sprite
         let sand = PIXI.Sprite.from("img/sand.png")
         app.stage.addChild(sand);
@@ -77,6 +85,7 @@
         function animationLoop() {
 
             let time = Date.now();
+            let swim = time % 6000 / 2;
             let wobble = Math.sin(time/1000)*50;
             let wobble2 = Math.sin(time/800)*50;
             let wobble3 = Math.sin(time/700)*60;
@@ -85,6 +94,7 @@
             octopus.y = 240 + wobble;
             fish1.y = 100 + wobble2;
             fish2.y = 370 + wobble3;
+            shark.x = 1280 - swim;
 
             setTimeout(animationLoop, 1000/30);
         }
