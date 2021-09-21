@@ -20,6 +20,17 @@
 
         document.body.appendChild(app.view);
 
+        //Sand Sprite
+        let sand = PIXI.Sprite.from("img/sand.png")
+        app.stage.addChild(sand);
+
+        //Plant Sprite 
+        let plant = PIXI.Sprite.from("img/plant.png")
+            plant.y = 30;
+            plant.x = 0;
+
+        app.stage.addChild(plant);
+
             //Sprite 1 (Octopus)
             let octopus = PIXI.Sprite.from("img/octopus.png");
                 octopus.x = 100;

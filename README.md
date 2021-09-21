@@ -11,3 +11,6 @@ Tropical Fish 2
 
 Plant
 - https://pixabay.com/de/illustrations/pflanze-ornament-aquarium-fischglas-5190623/
+
+Sand
+- https://www.maxpixel.net/Yellow-Desert-Sand-Dunes-3d-Bright-Dry-6095406
