@@ -21,7 +21,13 @@
         document.body.appendChild(app.view);
 
         //Sprite 1 (Octopus)
-        
+        let octopus = PIXI.Sprite.from("img/octopus.png");
+            octopus.x = 60;
+            octopus.y = 300;
+            octopus.scale.set(.5);
+
+        app.stage.addChild(octopus);
+
 
     </script>
 
