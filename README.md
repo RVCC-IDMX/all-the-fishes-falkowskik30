@@ -14,3 +14,6 @@ Plant
 
 Sand
 - https://www.maxpixel.net/Yellow-Desert-Sand-Dunes-3d-Bright-Dry-6095406
+
+Shipwreck
+- https://pixabay.com/de/vectors/schiffswrack-schiff-verlassen-575907/
