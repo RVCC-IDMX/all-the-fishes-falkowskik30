@@ -17,3 +17,6 @@ Sand
 
 Shipwreck
 - https://pixabay.com/de/vectors/schiffswrack-schiff-verlassen-575907/
+
+Shark
+- https://commons.wikimedia.org/wiki/File:Sharky.svg
