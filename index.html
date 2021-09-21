@@ -20,21 +20,46 @@
 
         document.body.appendChild(app.view);
 
-        //Sprite 1 (Octopus)
-        let octopus = PIXI.Sprite.from("img/octopus.png");
-            octopus.x = 60;
-            octopus.y = 250;
-            octopus.scale.set(.6);
+            //Sprite 1 (Octopus)
+            let octopus = PIXI.Sprite.from("img/octopus.png");
+                octopus.x = 100;
+                octopus.y = 250;
+                octopus.scale.set(.6);
 
-        app.stage.addChild(octopus);
+            app.stage.addChild(octopus);
 
-        //Sprite 2 (Fish1)
-        let fish1 = PIXI.Sprite.from("img/fish1.png");
-            fish1.x = 840;
-            fish1.y = 50;
-            fish1.scale.set(.3);
+            //Sprite 2 (Fish1)
+            let fish1 = PIXI.Sprite.from("img/fish1.png");
+                fish1.x = 840;
+                fish1.y = 50;
+                fish1.scale.set(.3);
+                
 
-        app.stage.addChild(fish1);
+            app.stage.addChild(fish1);
+
+            //Container
+            var container1 = new PIXI.Container();
+                container1.addChild(octopus);
+                container1.addChild(fish1);
+                container1.y = 0;
+                container1.x = 0;
+
+            app.stage.addChild(container1);
+
+        //Animation Loop
+        function animationLoop() {
+
+            let time = Date.now();
+            let wobble = Math.sin(time/1000)*50;
+            let wobble2 = Math.sin(time/800)*50;
+
+            
+            octopus.y = 240 + wobble;
+            fish1.y = 100 + wobble2;
+
+            setTimeout(animationLoop, 1000/30);
+        }
+        animationLoop();
 
     </script>
 
