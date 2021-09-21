@@ -72,6 +72,16 @@
 
             app.stage.addChild(fish2);
 
+            //Sprite 4 (Starfsh)
+            let star = PIXI.Sprite.from("img/starfish.png");
+                star.x = 1050;
+                star.y = 600;
+                star.anchor.set(.5);
+                star.scale.set(.2);
+                
+
+            app.stage.addChild(star);
+
             //Container
             var container1 = new PIXI.Container();
                 container1.addChild(octopus);
@@ -89,12 +99,12 @@
             let wobble = Math.sin(time/1000)*50;
             let wobble2 = Math.sin(time/800)*50;
             let wobble3 = Math.sin(time/700)*60;
-
             
             octopus.y = 240 + wobble;
             fish1.y = 100 + wobble2;
             fish2.y = 370 + wobble3;
             shark.x = 1280 - swim;
+            star.angle = wobble;
 
             setTimeout(animationLoop, 1000/30);
         }

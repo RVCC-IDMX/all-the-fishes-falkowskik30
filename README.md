@@ -20,3 +20,6 @@ Shipwreck
 
 Shark
 - https://commons.wikimedia.org/wiki/File:Sharky.svg
+
+Starfish
+- https://freesvg.org/starfish
