@@ -122,14 +122,16 @@
             let buttonBody = new PIXI.Graphics();
             buttonBody.beginFill(0xEEEEEE);
             buttonBody.drawRect(0, 0, 200, 100);
+            buttonBody.y = 530;
+            buttonBody.x = 575;
             ourButton.addChild(buttonBody);
 
             ourButton.body = buttonBody;
 
-            let buttonText = new PIXI.Text('Button');
+            let buttonText = new PIXI.Text('Click Me!');
             buttonText.anchor.set(.5, .5);
-            buttonText.x = 100;
-            buttonText.y = 50;
+            buttonText.x = 675;
+            buttonText.y = 580;
             ourButton.addChild(buttonText);
 
             ourButton.text = buttonText;
@@ -149,7 +151,8 @@
             });
 
 
-            //Draggable event listeners
+        // Removed Draggable Button
+        /* Draggable event listeners
             ourButton.dragging = false;
             ourButton.on("pointerdown", function (e) {
                 ourButton.dragging = true;
@@ -163,14 +166,14 @@
             });
             ourButton.on("pointerup", function (e) {
                 ourButton.dragging = false;
-            });
+            }); */
 
 
             return ourButton;
 
-        }
+        } 
 
-        let ourButton = makeButton();
+        let ourButton = makeButton(); 
 
 
 
@@ -273,8 +276,8 @@
         }
 
         let ourSlider = makeSlider();
-        ourSlider.y = 150;
-        ourSlider.x = 30;
+        ourSlider.y = 660;
+        ourSlider.x = 530;
         app.stage.addChild(ourSlider);
 
 
