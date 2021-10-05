@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,10 @@
     <title>Fish!</title>
     <script src="https://pixijs.download/release/pixi.min.js"></script>
 </head>
-<body>
-    
-    <script>
 
+<body>
+
+    <script>
         //The App
         var app = new PIXI.Application({
             width: 1280,
@@ -20,78 +21,79 @@
 
         document.body.appendChild(app.view);
 
-       //Sharky Sprite 
-       let shark = PIXI.Sprite.from("img/Sharky.png")
-            shark.y = 80;
-            shark.x = 1280;
-            shark.scale.set(.6);
+        //Sharky Sprite 
+        let shark = PIXI.Sprite.from("img/Sharky.png")
+        shark.y = 80;
+        shark.x = 1280;
+        shark.scale.set(.6);
 
-            app.stage.addChild(shark);
-       
+        app.stage.addChild(shark);
+
         //Sand Sprite
         let sand = PIXI.Sprite.from("img/sand.png")
         app.stage.addChild(sand);
 
         //Ship Sprite 
         let shipwreck = PIXI.Sprite.from("img/shipwreck.png")
-            shipwreck.y = 230;
-            shipwreck.x = 800;
-            shipwreck.scale.set(.6);
+        shipwreck.y = 230;
+        shipwreck.x = 800;
+        shipwreck.scale.set(.6);
 
         app.stage.addChild(shipwreck);
-        
+
         //Plant Sprite 
         let plant = PIXI.Sprite.from("img/plant.png")
-            plant.y = 30;
-            plant.x = 0;
+        plant.y = 30;
+        plant.x = 0;
 
         app.stage.addChild(plant);
 
-        
 
-            //Sprite 1 (Octopus)
-            let octopus = PIXI.Sprite.from("img/octopus.png");
-                octopus.x = 100;
-                octopus.y = 250;
-                octopus.scale.set(.6);
 
-            app.stage.addChild(octopus);
+        // Sprite 1 (Octopus)
+        let octopus = PIXI.Sprite.from("img/octopus.png");
+        octopus.x = 100;
+        octopus.y = 250;
+        octopus.scale.set(.6);
 
-            //Sprite 2 (Fish1)
-            let fish1 = PIXI.Sprite.from("img/fish1.png");
-                fish1.x = 840;
-                fish1.y = 50;
-                fish1.scale.set(.3);
+        app.stage.addChild(octopus);
 
-            //Sprite 3 (Fish2)
-            let fish2 = PIXI.Sprite.from("img/fish2.png");
-                fish2.x = 630;
-                fish2.y = 370;
-                fish2.scale.set(.3);
-                
+        //Sprite 2 (Fish1)
+        let fish1 = PIXI.Sprite.from("img/fish1.png");
+        fish1.x = 840;
+        fish1.y = 50;
+        fish1.scale.set(.3);
 
-            app.stage.addChild(fish2);
+        //Sprite 3 (Fish2)
+        let fish2 = PIXI.Sprite.from("img/fish2.png");
+        fish2.x = 630;
+        fish2.y = 370;
+        fish2.scale.set(.3);
 
-            //Sprite 4 (Starfsh)
-            let star = PIXI.Sprite.from("img/starfish.png");
-                star.x = 1050;
-                star.y = 600;
-                star.anchor.set(.5);
-                star.scale.set(.2);
-                
 
-            app.stage.addChild(star);
+        app.stage.addChild(fish2);
 
-            //Container
-            var container1 = new PIXI.Container();
-                container1.addChild(octopus);
-                container1.addChild(fish1);
-                container1.y = 0;
-                container1.x = 0;
+        //Sprite 4 (Starfsh)
+        let star = PIXI.Sprite.from("img/starfish.png");
+        star.x = 1050;
+        star.y = 600;
+        star.anchor.set(.5);
+        star.scale.set(.2);
 
-            app.stage.addChild(container1);
 
-        //Animation Loop
+        app.stage.addChild(star);
+
+        // Container
+        var container1 = new PIXI.Container();
+        // container1.addChild(octopus);
+        container1.addChild(fish1);
+        container1.y = 0;
+        container1.x = 0;
+
+        app.stage.addChild(container1);
+
+        /* TEMPORARY SILENCE. TURN BACK ON
+        Animation Loop
         function animationLoop() {
 
             let time = Date.now();
@@ -108,9 +110,184 @@
 
             setTimeout(animationLoop, 1000/30);
         }
-        animationLoop();
+        animationLoop(); 
+        */
 
+        //Button
+        function makeButton() {
+
+            let ourButton = new PIXI.Container();
+            ourButton.interactive = true;
+
+            let buttonBody = new PIXI.Graphics();
+            buttonBody.beginFill(0xEEEEEE);
+            buttonBody.drawRect(0, 0, 200, 100);
+            ourButton.addChild(buttonBody);
+
+            ourButton.body = buttonBody;
+
+            let buttonText = new PIXI.Text('Button');
+            buttonText.anchor.set(.5, .5);
+            buttonText.x = 100;
+            buttonText.y = 50;
+            ourButton.addChild(buttonText);
+
+            ourButton.text = buttonText;
+
+            //Event Listeners
+            //Click listener
+            ourButton.on("click", function (e) {
+                //alert("clicked!");
+                console.log(e);
+            });
+            //Hover listeners
+            ourButton.on("pointerover", function (e) {
+                ourButton.alpha = 0.7;
+            });
+            ourButton.on("pointerout", function (e) {
+                ourButton.alpha = 1.0;
+            });
+
+
+            //Draggable event listeners
+            ourButton.dragging = false;
+            ourButton.on("pointerdown", function (e) {
+                ourButton.dragging = true;
+            });
+            ourButton.on("pointermove", function (e) {
+                if (ourButton.dragging) {
+                    console.log(e);
+                    ourButton.x = e.data.global.x - ourButton.width / 2;
+                    ourButton.y = e.data.global.y - ourButton.height / 2;
+                }
+            });
+            ourButton.on("pointerup", function (e) {
+                ourButton.dragging = false;
+            });
+
+
+            return ourButton;
+
+        }
+
+        let ourButton = makeButton();
+
+
+
+
+        //Buttons can also have an Internal State
+
+        //Toggles or Checkboxes stick On or Off.
+        //Radio Buttons have one On state among their brethren in the same set.
+        //Dropdowns have one state that can be selected among others.
+
+        function makeToggle() {
+
+            let myButton = makeButton();
+            myButton.isOn = false;
+
+            myButton.body.tint = 0xFF0000;
+
+            myButton.on('click', () => {
+
+                myButton.isOn = !myButton.isOn;
+
+                if (myButton.isOn) myButton.body.tint = 0x00FF00;
+                else myButton.body.tint = 0xFF0000;
+
+            });
+
+            return myButton;
+
+        }
+
+        //let ourButton = makeToggle();
+
+        //Some "buttons" can be Draggable Elements.
+
+
+        //Sliders are buttons that can be dragged along a track.
+        //The most common are straight lines, or circles.
+
+        function makeSlider() {
+
+            let ourButton = new PIXI.Container();
+            ourButton.interactive = true;
+
+            ourButton.value = 0;
+
+            //The track
+            let theTrack = new PIXI.Graphics();
+            theTrack.beginFill(0xCCCCCC);
+            theTrack.drawRect(0, -10, 300, 20);
+
+            ourButton.addChild(theTrack);
+
+            //The slide
+            let theSlide = new PIXI.Graphics();
+            theSlide.interactive = true;
+            theSlide.beginFill(0xEEEEEE);
+            theSlide.drawRect(-25, -25, 50, 50);
+
+            ourButton.addChild(theSlide);
+
+            //Add event listeners
+            //Draggable event listeners
+            theSlide.dragging = false;
+            theSlide.on("pointerdown", function (e) {
+                theSlide.dragging = true;
+            });
+            theSlide.on("pointermove", function (e) {
+                if (theSlide.dragging) {
+
+                    let newX = e.data.global.x - ourButton.getGlobalPosition().x;
+                    let newY = e.data.global.y - ourButton.getGlobalPosition().y;
+
+                    /*
+                    console.log(
+                            Math.round(e.data.global.x),
+                            Math.round(e.data.global.y),
+                            Math.round(newX), 
+                            Math.round(newY),
+                            ourButton.getGlobalPosition());*/
+
+                    if (newX > theTrack.width) newX = theTrack.width;
+                    if (newX < 0) newX = 0;
+
+                    ourButton.value = newX / theTrack.width;
+
+                    theSlide.x = newX;
+
+                    console.log(ourButton.value);
+                }
+            });
+            theSlide.on("pointerup", function (e) {
+                theSlide.dragging = false;
+            });
+            theSlide.on("pointerupoutside", function (e) {
+                theSlide.dragging = false;
+            });
+
+            return ourButton;
+
+        }
+
+        let ourSlider = makeSlider();
+        ourSlider.y = 150;
+        ourSlider.x = 30;
+        app.stage.addChild(ourSlider);
+
+
+
+        //Build a button that changes one of the fish's colors randomly.
+
+        //Make one of your fish draggable
+
+        //Build a slider or dial that changes the size or rotation of one of your fish.
+
+        app.stage.addChild(ourButton);
     </script>
 
 </body>
+
 </html>
