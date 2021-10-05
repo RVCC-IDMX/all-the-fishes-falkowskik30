@@ -64,6 +64,7 @@
         fish1.y = 50;
         fish1.scale.set(.3);
 
+        app.stage.addChild(fish1);
 
 
 
@@ -96,8 +97,7 @@
 
         app.stage.addChild(container1); */
 
-        /* TEMPORARY SILENCE. TURN BACK ON
-        Animation Loop
+        // Animation Loop
         function animationLoop() {
 
             let time = Date.now();
@@ -115,10 +115,9 @@
             setTimeout(animationLoop, 1000/30);
         }
         animationLoop(); 
-        */
+        
 
-        //Draggable Fish        
-
+        /* //Draggable Fish        
         function makeFish () {
 
             let fishContainer = new PIXI.Container();
@@ -136,17 +135,10 @@
                 //alert("clicked!");
                 console.log(e);
             });
-            //Hover listeners
-            fishContainer.on("pointerover", function (e) {
-                fishContainer.alpha = 0.7;
-            });
-            fishContainer.on("pointerout", function (e) {
-                fishContainer.alpha = 1.0;
-            });
 
 
         //Removed Draggable Button
-        // Draggable event listeners
+        //Draggable event listeners
             fishContainer.dragging = false;
             fishContainer.on("pointerdown", function (e) {
                 fishContainer.dragging = true;
@@ -166,7 +158,7 @@
 
         } 
 
-        let fishContainer = makeFish();
+        let fishContainer = makeFish(); */
 
 
         //Button
