@@ -130,6 +130,38 @@
             fishBody.x = 0;
             app.stage.addChild(fishBody);
 
+        //Event Listeners
+            //Click listener
+            fishContainer.on("click", function (e) {
+                //alert("clicked!");
+                console.log(e);
+            });
+            //Hover listeners
+            fishContainer.on("pointerover", function (e) {
+                fishContainer.alpha = 0.7;
+            });
+            fishContainer.on("pointerout", function (e) {
+                fishContainer.alpha = 1.0;
+            });
+
+
+        //Removed Draggable Button
+        // Draggable event listeners
+            fishContainer.dragging = false;
+            fishContainer.on("pointerdown", function (e) {
+                fishContainer.dragging = true;
+            });
+            fishContainer.on("pointermove", function (e) {
+                if (fishContainer.dragging) {
+                    console.log(e);
+                    fishContainer.x = e.data.global.x - fishContainer.width / 2;
+                    fishContainer.y = e.data.global.y - fishContainer.height / 2;
+                }
+            });
+            fishContainer.on("pointerup", function (e) {
+                fishContainer.dragging = false;
+            });
+
             return fishContainer;
 
         } 
